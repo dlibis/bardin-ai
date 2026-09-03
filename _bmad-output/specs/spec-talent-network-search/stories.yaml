@@ -1,0 +1,39 @@
+- id: "1"
+  title: Data Model, Constraints & Ingestion Engine
+  description: >-
+    Set up PostgreSQL / PGlite relational schema, check constraints, partial unique indexes, and the transactional staging synchronization engine.
+    Reconciles people, employment, skills, and referrals from talent-graph-seed.json with full idempotency and zero stale records.
+  spec_checkpoint: false
+  done_checkpoint: true
+  invoke_dev_with: >-
+    Use PGlite for in-memory embedded zero-config execution alongside pg. Implement two-phase staging synchronization to handle forward references (p1 referencing p4) and clean up deleted records atomically. Verify counts: exactly 14 logical employment connections and 6 logical referrals yielding 20 logical connections and 40 stored directed rows.
+
+- id: "2"
+  title: Connection Derivation & 2-Hop Graph Traversal Engine
+  description: >-
+    Implement discrete employment date interval overlap logic with canonical company normalization and bidirectional referral tagging.
+    Construct the recursive CTE graph traversal up to 2 hops with cycle prevention and total ordering multi-path tie-breaking.
+  spec_checkpoint: false
+  done_checkpoint: true
+  invoke_dev_with: >-
+    Adhere strictly to the total ordering tie-breaker: hop count -> final step semantic weight (FORWARD > REVERSE > WORKED_WITH) -> compound edge bonus -> overlap duration -> intermediary name ASC -> intermediary id ASC -> target id ASC. Ensure Dana Ravid returns Yossi Bar-Lev as primary and Maya Tsur as alternative for Noa Frisch.
+
+- id: "3"
+  title: REST API Service & Request Validation
+  description: >-
+    Implement Express HTTP endpoints for people, skills, search, and secure seed import per api-spec.md.
+    Validate query parameters, handle errors with standard JSON envelopes, and return deterministic result ordering.
+  spec_checkpoint: false
+  done_checkpoint: true
+  invoke_dev_with: >-
+    POST /api/import must only accept a validated JSON body or default to bundled talent-graph-seed.json, explicitly rejecting server filesystem paths. GET /api/people must return latestRole with isCurrent boolean. GET /api/search must return all 3 candidates for Dana Ravid + Neo4j.
+
+- id: "4"
+  title: Recruiter Frontend, Graph Canvas & Verification Suite
+  description: >-
+    Build the responsive React interface with person and skill selection, 1-click test preset, candidate cards with alternative paths, accessible text chain list, and Reagraph visualization.
+    Implement the comprehensive 8-case Vitest suite to verify end-to-end acceptance, ranking, reverse traversal, and constraints.
+  spec_checkpoint: false
+  done_checkpoint: true
+  invoke_dev_with: >-
+    Provide both the Reagraph WebGL canvas and a fully accessible textual chain list. Include the 1-click preset button for Dana Ravid + Neo4j. Ensure all 8 Vitest tests pass with npm test.

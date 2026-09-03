@@ -1,0 +1,311 @@
+{
+  "_readme": "Seed data for the Bardin full-stack take-home. Fictional people and companies. Companies are referenced from employment by NAME, skills are bare strings, and 'referred_by' points at a person id — how much of that becomes a node is your call.",
+  "companies": [
+    {
+      "name": "Helix Robotics",
+      "industry": "Robotics",
+      "headcount": 120,
+      "hq": "Tel Aviv"
+    },
+    {
+      "name": "Northwind Automation",
+      "industry": "Industrial automation",
+      "headcount": 450,
+      "hq": "Haifa"
+    },
+    {
+      "name": "Kavim Systems",
+      "industry": "Field service software",
+      "headcount": 60,
+      "hq": "Tel Aviv"
+    },
+    {
+      "name": "Sable Analytics",
+      "industry": "Data infrastructure",
+      "headcount": 200,
+      "hq": "Herzliya"
+    },
+    {
+      "name": "Orenda Labs",
+      "industry": "AI research",
+      "headcount": 35,
+      "hq": "Jerusalem"
+    }
+  ],
+  "people": [
+    {
+      "id": "p1",
+      "name": "Dana Ravid",
+      "location": "Tel Aviv",
+      "skills": [
+        "TypeScript",
+        "Postgres",
+        "Kubernetes"
+      ],
+      "employment": [
+        {
+          "company": "Helix Robotics",
+          "title": "Senior Backend Engineer",
+          "from": "2021-03",
+          "to": "2024-08"
+        }
+      ],
+      "referred_by": "p4"
+    },
+    {
+      "id": "p2",
+      "name": "Yossi Bar-Lev",
+      "location": "Tel Aviv",
+      "skills": [
+        "Go",
+        "Postgres",
+        "Neo4j"
+      ],
+      "employment": [
+        {
+          "company": "Helix Robotics",
+          "title": "Staff Engineer",
+          "from": "2020-01",
+          "to": "2023-05"
+        }
+      ],
+      "referred_by": null
+    },
+    {
+      "id": "p3",
+      "name": "Maya Tsur",
+      "location": "Ramat Gan",
+      "skills": [
+        "React",
+        "TypeScript",
+        "GraphQL"
+      ],
+      "employment": [
+        {
+          "company": "Helix Robotics",
+          "title": "Frontend Engineer",
+          "from": "2023-09",
+          "to": null
+        }
+      ],
+      "referred_by": "p7"
+    },
+    {
+      "id": "p4",
+      "name": "Eitan Shoval",
+      "location": "Haifa",
+      "skills": [
+        "Python",
+        "Airflow",
+        "Postgres"
+      ],
+      "employment": [
+        {
+          "company": "Northwind Automation",
+          "title": "Data Engineer",
+          "from": "2019-06",
+          "to": "2022-11"
+        }
+      ],
+      "referred_by": null
+    },
+    {
+      "id": "p5",
+      "name": "Liat Ben-Ami",
+      "location": "Haifa",
+      "skills": [
+        "Kubernetes",
+        "Terraform",
+        "Go"
+      ],
+      "employment": [
+        {
+          "company": "Northwind Automation",
+          "title": "Platform Lead",
+          "from": "2021-02",
+          "to": null
+        }
+      ],
+      "referred_by": null
+    },
+    {
+      "id": "p6",
+      "name": "Omer Klein",
+      "location": "Haifa",
+      "skills": [
+        "Rust",
+        "Kubernetes"
+      ],
+      "employment": [
+        {
+          "company": "Northwind Automation",
+          "title": "Systems Engineer",
+          "from": "2022-04",
+          "to": null
+        }
+      ],
+      "referred_by": "p13"
+    },
+    {
+      "id": "p7",
+      "name": "Noa Frisch",
+      "location": "Tel Aviv",
+      "skills": [
+        "TypeScript",
+        "React",
+        "Neo4j"
+      ],
+      "employment": [
+        {
+          "company": "Kavim Systems",
+          "title": "Full Stack Engineer",
+          "from": "2020-08",
+          "to": "2024-01"
+        }
+      ],
+      "referred_by": "p2"
+    },
+    {
+      "id": "p8",
+      "name": "Gil Amrani",
+      "location": "Tel Aviv",
+      "skills": [
+        "Neo4j",
+        "GraphQL",
+        "Python"
+      ],
+      "employment": [
+        {
+          "company": "Kavim Systems",
+          "title": "Backend Engineer",
+          "from": "2023-06",
+          "to": null
+        }
+      ],
+      "referred_by": null
+    },
+    {
+      "id": "p9",
+      "name": "Tamar Elias",
+      "location": "Herzliya",
+      "skills": [
+        "Python",
+        "Spark",
+        "Postgres"
+      ],
+      "employment": [
+        {
+          "company": "Sable Analytics",
+          "title": "Senior Data Engineer",
+          "from": "2018-04",
+          "to": "2021-09"
+        }
+      ],
+      "referred_by": null
+    },
+    {
+      "id": "p10",
+      "name": "Roi Nachman",
+      "location": "Tel Aviv",
+      "skills": [
+        "Spark",
+        "Rust"
+      ],
+      "employment": [
+        {
+          "company": "Sable Analytics",
+          "title": "Data Platform Engineer",
+          "from": "2021-01",
+          "to": null
+        }
+      ],
+      "referred_by": "p5"
+    },
+    {
+      "id": "p11",
+      "name": "Shira Levko",
+      "location": "Jerusalem",
+      "skills": [
+        "Python",
+        "PyTorch",
+        "Neo4j"
+      ],
+      "employment": [
+        {
+          "company": "Orenda Labs",
+          "title": "Research Engineer",
+          "from": "2022-01",
+          "to": null
+        }
+      ],
+      "referred_by": "p8"
+    },
+    {
+      "id": "p12",
+      "name": "Adi Perl",
+      "location": "Jerusalem",
+      "skills": [
+        "PyTorch",
+        "Go"
+      ],
+      "employment": [
+        {
+          "company": "Orenda Labs",
+          "title": "ML Engineer",
+          "from": "2020-05",
+          "to": "2023-12"
+        }
+      ],
+      "referred_by": null
+    },
+    {
+      "id": "p13",
+      "name": "Nadav Hess",
+      "location": "Tel Aviv",
+      "skills": [
+        "Java",
+        "Postgres"
+      ],
+      "employment": [
+        {
+          "company": "Kavim Systems",
+          "title": "Software Engineer",
+          "from": "2019-01",
+          "to": "2020-03"
+        },
+        {
+          "company": "Sable Analytics",
+          "title": "Backend Engineer",
+          "from": "2020-06",
+          "to": "2023-02"
+        }
+      ],
+      "referred_by": null
+    },
+    {
+      "id": "p14",
+      "name": "Efrat Solomon",
+      "location": "Tel Aviv",
+      "skills": [
+        "React",
+        "PyTorch",
+        "TypeScript"
+      ],
+      "employment": [
+        {
+          "company": "Orenda Labs",
+          "title": "Research Engineer",
+          "from": "2021-03",
+          "to": "2024-01"
+        },
+        {
+          "company": "Helix Robotics",
+          "title": "Senior Full Stack Engineer",
+          "from": "2024-02",
+          "to": null
+        }
+      ],
+      "referred_by": null
+    }
+  ]
+}

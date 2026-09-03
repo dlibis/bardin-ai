@@ -6,7 +6,7 @@ import { ErrorBanner } from "./components/ErrorBanner.js";
 import { SearchControls } from "./components/SearchControls.js";
 import { CandidateList } from "./components/CandidateList.js";
 import { GraphCanvasView } from "./components/GraphCanvasView.js";
-import { AccessibleChainList } from "./components/AccessibleChainList.js";
+
 import { LayoutGrid, Network, Eye } from "lucide-react";
 
 export const App: React.FC = () => {
@@ -162,6 +162,7 @@ export const App: React.FC = () => {
         {viewMode === "split" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
             {/* Left Column: Candidate Cards */}
+
             <div className="lg:col-span-6 space-y-6">
               <CandidateList
                 loading={loadingSearch}
@@ -183,12 +184,6 @@ export const App: React.FC = () => {
                       searcherId={searchResponse.query.personId}
                       searcherName={searcherName}
                       candidates={searchResponse.results}
-                    />
-
-                    <AccessibleChainList
-                      candidates={searchResponse.results}
-                      searcherName={searcherName}
-                      skill={searchResponse.query.skill}
                     />
                   </>
                 )}
@@ -224,7 +219,7 @@ export const App: React.FC = () => {
       </main>
 
       <footer className="border-t border-slate-900 py-4 text-center text-xs text-slate-500">
-        Talent Network Search • Verified warm paths within 2 hops
+        Talent Network Search
       </footer>
     </div>
   );

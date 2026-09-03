@@ -1,7 +1,7 @@
-import React from 'react';
-import { Search, Users, Sparkles } from 'lucide-react';
-import { CandidateResultItem, SearchQueryItem } from '../types.js';
-import { CandidateCard } from './CandidateCard.js';
+import React from "react";
+import { Search, Users, Sparkles } from "lucide-react";
+import { CandidateResultItem, SearchQueryItem } from "../types.js";
+import { CandidateCard } from "./CandidateCard.js";
 
 interface CandidateListProps {
   loading: boolean;
@@ -29,7 +29,10 @@ export const CandidateList: React.FC<CandidateListProps> = ({
           <div className="h-5 w-24 bg-slate-800 rounded"></div>
         </div>
         {[1, 2, 3].map((i) => (
-          <div key={i} className="glass-card rounded-2xl p-5 border border-slate-800 animate-pulse space-y-4">
+          <div
+            key={i}
+            className="glass-card rounded-2xl p-5 border border-slate-800 animate-pulse space-y-4"
+          >
             <div className="flex justify-between items-center">
               <div className="space-y-2">
                 <div className="h-5 w-40 bg-slate-800 rounded"></div>
@@ -57,7 +60,9 @@ export const CandidateList: React.FC<CandidateListProps> = ({
           <Users className="w-7 h-7" />
         </div>
         <div>
-          <h3 className="text-base font-bold text-slate-100">Ready to Discover Warm Leads</h3>
+          <h3 className="text-base font-bold text-slate-100">
+            Ready to Discover Warm Leads
+          </h3>
           <p className="text-xs text-slate-400 mt-1.5">
             Choose a contact and skill, or run the preset to view warm paths.
           </p>
@@ -82,9 +87,12 @@ export const CandidateList: React.FC<CandidateListProps> = ({
           <Search className="w-6 h-6" />
         </div>
         <div>
-          <h3 className="text-sm font-bold text-slate-200">No Candidates Found</h3>
+          <h3 className="text-sm font-bold text-slate-200">
+            No Candidates Found
+          </h3>
           <p className="text-xs text-slate-400 mt-1">
-            No candidates with '{query?.skill}' found within 2 hops of {query?.personName}.
+            No candidates with '{query?.skill}' found within 2 hops of{" "}
+            {query?.personName}.
           </p>
         </div>
         <p className="text-[11px] text-slate-500">
@@ -97,23 +105,13 @@ export const CandidateList: React.FC<CandidateListProps> = ({
   // Active Results List
   return (
     <div className="space-y-4">
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-2 border-b border-slate-800">
-        <div className="flex items-center space-x-2">
-          <h2 className="text-base font-bold text-slate-100">Discovered Candidates</h2>
-          <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 text-xs font-semibold">
-            {resultsCount} {resultsCount === 1 ? 'candidate' : 'candidates'}
-          </span>
-        </div>
-        <div className="text-xs text-slate-400">
-          From <span className="text-slate-200 font-medium">{query?.personName}</span> • Skill: <span className="text-emerald-400 font-medium">{query?.skill}</span>
-        </div>
-      </div>
-
-      <div className="space-y-4">
-        {results.map((candidate, idx) => (
-          <CandidateCard key={candidate.person.id} candidate={candidate} rankIndex={idx} />
-        ))}
-      </div>
+      {results.map((candidate, idx) => (
+        <CandidateCard
+          key={candidate.person.id}
+          candidate={candidate}
+          rankIndex={idx}
+        />
+      ))}
     </div>
   );
 };

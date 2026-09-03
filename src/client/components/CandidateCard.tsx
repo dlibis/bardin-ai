@@ -1,15 +1,32 @@
-import React, { useState } from 'react';
-import { ChevronDown, ChevronUp, MapPin, Briefcase, UserCheck, ArrowRight, GitFork } from 'lucide-react';
-import { CandidateResultItem, ChainItem, ChainStepItem } from '../types.js';
+import React, { useState } from "react";
+import {
+  ChevronDown,
+  ChevronUp,
+  MapPin,
+  Briefcase,
+  UserCheck,
+  ArrowRight,
+  GitFork,
+} from "lucide-react";
+import { CandidateResultItem, ChainItem, ChainStepItem } from "../types.js";
 
 interface CandidateCardProps {
   candidate: CandidateResultItem;
   rankIndex: number;
 }
 
-export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, rankIndex }) => {
+export const CandidateCard: React.FC<CandidateCardProps> = ({
+  candidate,
+  rankIndex,
+}) => {
   const [showAlternatives, setShowAlternatives] = useState(false);
-  const { person, depth, primaryChain, alternativeChains, totalAlternativeChains } = candidate;
+  const {
+    person,
+    depth,
+    primaryChain,
+    alternativeChains,
+    totalAlternativeChains,
+  } = candidate;
 
   return (
     <div className="glass-card rounded-2xl p-5 transition-all duration-200 shadow-md">
@@ -34,11 +51,11 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, rankInd
           <span
             className={`px-2.5 py-1 rounded-full text-xs font-semibold tracking-wide border ${
               depth === 1
-                ? 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30'
-                : 'bg-indigo-500/10 text-indigo-400 border-indigo-500/30'
+                ? "bg-emerald-500/10 text-emerald-400 border-emerald-500/30"
+                : "bg-indigo-500/10 text-indigo-400 border-indigo-500/30"
             }`}
           >
-            {depth === 1 ? '1st Degree' : '2nd Degree'}
+            {depth === 1 ? "1st Degree" : "2nd Degree"}
           </span>
         </div>
       </div>
@@ -58,11 +75,6 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, rankInd
 
       {/* Primary Connection Chain */}
       <div className="mt-2 bg-slate-950/60 rounded-xl p-3.5 border border-slate-800/80">
-        <div className="text-xs font-semibold text-emerald-400 flex items-center gap-1.5 mb-2.5">
-          <UserCheck className="w-3.5 h-3.5" />
-          <span>Warm Intro Path</span>
-        </div>
-
         <ChainDisplay chain={primaryChain} isPrimary={true} />
       </div>
 
@@ -78,7 +90,8 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, rankInd
             <span className="flex items-center space-x-1.5">
               <GitFork className="w-3.5 h-3.5 text-indigo-400" />
               <span>
-                {totalAlternativeChains} alternative path{totalAlternativeChains > 1 ? 's' : ''}
+                {totalAlternativeChains} alternative path
+                {totalAlternativeChains > 1 ? "s" : ""}
               </span>
             </span>
             {showAlternatives ? (
@@ -91,7 +104,10 @@ export const CandidateCard: React.FC<CandidateCardProps> = ({ candidate, rankInd
           {showAlternatives && (
             <div className="mt-2 space-y-2 pt-1">
               {alternativeChains.map((altChain, i) => (
-                <div key={i} className="bg-slate-950/40 rounded-xl p-3 border border-slate-800/60">
+                <div
+                  key={i}
+                  className="bg-slate-950/40 rounded-xl p-3 border border-slate-800/60"
+                >
                   <div className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider mb-2">
                     Alternative #{i + 1}
                   </div>
@@ -127,17 +143,19 @@ const ChainDisplay: React.FC<ChainDisplayProps> = ({ chain, isPrimary }) => {
               {/* Edge relation pill */}
               <div
                 className={`flex items-center space-x-1 text-[11px] px-2 py-0.5 rounded-md border ${
-                  step.type === 'REFERRED'
-                    ? step.traversalDirection === 'FORWARD'
-                      ? 'bg-amber-500/10 text-amber-300 border-amber-500/30'
-                      : 'bg-purple-500/10 text-purple-300 border-purple-500/30'
-                    : 'bg-blue-500/10 text-blue-300 border-blue-500/30'
+                  step.type === "REFERRED"
+                    ? step.traversalDirection === "FORWARD"
+                      ? "bg-amber-500/10 text-amber-300 border-amber-500/30"
+                      : "bg-purple-500/10 text-purple-300 border-purple-500/30"
+                    : "bg-blue-500/10 text-blue-300 border-blue-500/30"
                 }`}
-                title={step.reasons.map((r) => r.text).join(' & ')}
+                title={step.reasons.map((r) => r.text).join(" & ")}
               >
-                {step.type === 'REFERRED' ? (
+                {step.type === "REFERRED" ? (
                   <span>
-                    {step.traversalDirection === 'FORWARD' ? 'referred →' : 'referred by →'}
+                    {step.traversalDirection === "FORWARD"
+                      ? "referred →"
+                      : "referred by →"}
                   </span>
                 ) : (
                   <span className="flex items-center gap-1">
@@ -145,7 +163,8 @@ const ChainDisplay: React.FC<ChainDisplayProps> = ({ chain, isPrimary }) => {
                     <span>{step.company}</span>
                     {step.overlapFrom && step.overlapTo && (
                       <span className="text-[10px] text-slate-400 font-mono">
-                        ({step.overlapFrom.slice(0, 4)}–{step.overlapTo.slice(0, 4)})
+                        ({step.overlapFrom.slice(0, 4)}–
+                        {step.overlapTo.slice(0, 4)})
                       </span>
                     )}
                   </span>
